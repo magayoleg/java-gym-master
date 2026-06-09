@@ -12,7 +12,7 @@ public class Timetable {
     public Comparator<TimeOfDay> comparator = new Comparator<TimeOfDay>() {
         @Override
         public int compare(TimeOfDay t1, TimeOfDay t2) {
-            if(t1.getHours() == t2.getHours()) {
+            if(t1.getHours() == t2.getHours()){
                 return t1.getMinutes() - t2.getMinutes();
             }
             return t1.getHours() - t2.getHours();
@@ -26,7 +26,7 @@ public class Timetable {
         trainingSession.getCoach().addTrainingCountByWeek();
         coachesByWeek.add(trainingSession.getCoach());
 
-        if(timetable.containsKey(trainingSession.getDayOfWeek())) {
+        if(timetable.containsKey(trainingSession.getDayOfWeek())){
             TreeMap<TimeOfDay, ArrayList<TrainingSession>> trainingOfDay = timetable.get(trainingSession.getDayOfWeek());
 
             ArrayList<TrainingSession> trainingSessions = trainingOfDay.getOrDefault(trainingSession.getTimeOfDay(), new ArrayList<>());
@@ -57,7 +57,7 @@ public class Timetable {
         coachList.sort((coach1, coach2) -> coach2.getTrainingCountByWeek() - coach1.getTrainingCountByWeek());
 
         LinkedHashMap<Coach, Integer> countTrainingByCoaches = new LinkedHashMap<>();
-        for(Coach coach : coachList) {
+        for(Coach coach : coachList){
             countTrainingByCoaches.put(coach, coach.getTrainingCountByWeek());
         }
 
@@ -68,10 +68,10 @@ public class Timetable {
     public String toString() {
         String timeTableString = "";
 
-        for(DayOfWeek day : timetable.keySet()) {
+        for(DayOfWeek day : timetable.keySet()){
             String dayTrainingString = "";
             TreeMap<TimeOfDay, ArrayList<TrainingSession>> trainingsOfDay = timetable.get(day);
-            for(TimeOfDay timeOfDay : trainingsOfDay.keySet()) {
+            for(TimeOfDay timeOfDay : trainingsOfDay.keySet()){
                 dayTrainingString += "\t" + timeOfDay.getHours() + ":" + timeOfDay.getMinutes() + ": " + trainingsOfDay.get(timeOfDay) + ";\n";
             }
             timeTableString += day + ":" + " {" + "\n" + dayTrainingString + "}";
