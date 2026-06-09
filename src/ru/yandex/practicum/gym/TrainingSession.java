@@ -1,5 +1,8 @@
 package ru.yandex.practicum.gym;
 
+import java.util.ArrayList;
+import java.util.TreeMap;
+
 public class TrainingSession {
 
     //группа
@@ -32,5 +35,10 @@ public class TrainingSession {
 
     public TimeOfDay getTimeOfDay() {
         return timeOfDay;
+    }
+
+    @Override
+    public String toString() {
+        return group + " — " + coach;
     }
 }

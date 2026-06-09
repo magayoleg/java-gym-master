@@ -1,5 +1,8 @@
 package ru.yandex.practicum.gym;
 
+import java.util.ArrayList;
+import java.util.TreeMap;
+
 public class Group {
     //название группы
     private String title;
@@ -24,5 +27,10 @@ public class Group {
 
     public int getDuration() {
         return duration;
+    }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }
