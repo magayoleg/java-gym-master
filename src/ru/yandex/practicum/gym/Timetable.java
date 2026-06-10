@@ -44,12 +44,16 @@ public class Timetable {
 
     public TreeMap<TimeOfDay, ArrayList<TrainingSession>> getTrainingSessionsForDay(DayOfWeek dayOfWeek) {
         //как реализовать, тоже непонятно, но сложность должна быть О(1)
-        return timetable.get(dayOfWeek);
+        return timetable.getOrDefault(dayOfWeek, new TreeMap<>());
     }
 
     public ArrayList<TrainingSession> getTrainingSessionsForDayAndTime(DayOfWeek dayOfWeek, TimeOfDay timeOfDay) {
         //как реализовать, тоже непонятно, но сложность должна быть О(1)
-        return timetable.get(dayOfWeek).get(timeOfDay);
+        if(timetable.containsKey(dayOfWeek)) {
+            return timetable.get(dayOfWeek).getOrDefault(timeOfDay, new ArrayList<>());
+        }
+
+        return new ArrayList<>();
     }
 
     public LinkedHashMap<Coach, Integer> getCountByCoaches() {
