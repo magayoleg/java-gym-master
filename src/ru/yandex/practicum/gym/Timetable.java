@@ -49,7 +49,7 @@ public class Timetable {
 
     public ArrayList<TrainingSession> getTrainingSessionsForDayAndTime(DayOfWeek dayOfWeek, TimeOfDay timeOfDay) {
         //как реализовать, тоже непонятно, но сложность должна быть О(1)
-        if(timetable.containsKey(dayOfWeek)) {
+        if (timetable.containsKey(dayOfWeek)) {
             return timetable.get(dayOfWeek).getOrDefault(timeOfDay, new ArrayList<>());
         }
 
